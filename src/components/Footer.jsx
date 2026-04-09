@@ -4,22 +4,56 @@ import { colors, fonts } from '../utils/colors';
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: colors.navyDark }}>
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      {/* Gold accent line at top */}
+      <div
+        style={{
+          height: '3px',
+          background: `linear-gradient(to right, transparent, ${colors.gold}, transparent)`,
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <div
-              className="mb-4"
-              style={{
-                fontFamily: fonts.serif,
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: colors.goldLight,
-                letterSpacing: '0.02em',
-              }}
-            >
-              REEL RECORDS
+            {/* Logo matching navbar style */}
+            <div className="flex items-center gap-2 mb-4">
+              <div
+                style={{
+                  width: '3px',
+                  height: '24px',
+                  background: `linear-gradient(to bottom, ${colors.gold}, ${colors.goldDark})`,
+                  borderRadius: '2px',
+                }}
+              />
+              <div>
+                <span
+                  style={{
+                    fontFamily: fonts.serif,
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    color: colors.white,
+                    letterSpacing: '0.08em',
+                    display: 'block',
+                    lineHeight: 1.1,
+                  }}
+                >
+                  ALL-TACKLE
+                </span>
+                <span
+                  style={{
+                    fontFamily: fonts.sans,
+                    fontSize: '0.5rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: colors.gold,
+                    display: 'block',
+                  }}
+                >
+                  RECORDS
+                </span>
+              </div>
             </div>
-            <p style={{ fontFamily: fonts.sans, fontSize: '0.875rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>
+            <p style={{ fontFamily: fonts.sans, fontSize: '0.8125rem', color: 'rgba(255,255,255,0.35)', lineHeight: 1.7 }}>
               The most comprehensive database of IGFA world fishing records. Celebrating anglers and their incredible achievements since 1932.
             </p>
           </div>
@@ -28,11 +62,11 @@ export default function Footer() {
             <h3
               style={{
                 fontFamily: fonts.sans,
-                fontSize: '0.6875rem',
+                fontSize: '0.625rem',
                 fontWeight: 700,
-                letterSpacing: '0.12em',
+                letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.5)',
+                color: colors.gold,
                 marginBottom: '1.25rem',
               }}
             >
@@ -50,13 +84,13 @@ export default function Footer() {
                     to={link.to}
                     style={{
                       fontFamily: fonts.sans,
-                      fontSize: '0.875rem',
-                      color: 'rgba(255,255,255,0.5)',
+                      fontSize: '0.8125rem',
+                      color: 'rgba(255,255,255,0.4)',
                       textDecoration: 'none',
                       transition: 'color 0.2s',
                     }}
                     onMouseEnter={e => (e.target.style.color = colors.goldLight)}
-                    onMouseLeave={e => (e.target.style.color = 'rgba(255,255,255,0.5)')}
+                    onMouseLeave={e => (e.target.style.color = 'rgba(255,255,255,0.4)')}
                   >
                     {link.label}
                   </Link>
@@ -69,46 +103,52 @@ export default function Footer() {
             <h3
               style={{
                 fontFamily: fonts.sans,
-                fontSize: '0.6875rem',
+                fontSize: '0.625rem',
                 fontWeight: 700,
-                letterSpacing: '0.12em',
+                letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.5)',
+                color: colors.gold,
                 marginBottom: '1.25rem',
               }}
             >
               Data Source
             </h3>
-            <p style={{ fontFamily: fonts.sans, fontSize: '0.875rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, marginBottom: '1rem' }}>
+            <p style={{ fontFamily: fonts.sans, fontSize: '0.8125rem', color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, marginBottom: '1rem' }}>
               Records sourced from the{' '}
               <a
                 href="https://www.igfa.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: colors.goldLight, textDecoration: 'none', transition: 'opacity 0.2s' }}
-                onMouseEnter={e => (e.target.style.opacity = '0.8')}
+                onMouseEnter={e => (e.target.style.opacity = '0.7')}
                 onMouseLeave={e => (e.target.style.opacity = '1')}
               >
                 International Game Fish Association
               </a>
             </p>
-            <p style={{ fontFamily: fonts.sans, fontSize: '0.75rem', color: 'rgba(255,255,255,0.25)' }}>
+            <p style={{ fontFamily: fonts.sans, fontSize: '0.6875rem', color: 'rgba(255,255,255,0.2)' }}>
               Last updated April 2026
             </p>
           </div>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '2rem' }}>
+        <div
+          style={{
+            borderTop: '1px solid rgba(255,255,255,0.06)',
+            paddingTop: '1.5rem',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <p
-            className="text-center"
             style={{
               fontFamily: fonts.sans,
-              fontSize: '0.75rem',
-              color: 'rgba(255,255,255,0.25)',
-              letterSpacing: '0.02em',
+              fontSize: '0.6875rem',
+              color: 'rgba(255,255,255,0.2)',
+              letterSpacing: '0.03em',
             }}
           >
-            &copy; 2026 Reel Records. All rights reserved.
+            &copy; 2026 All-Tackle Records. All rights reserved.
           </p>
         </div>
       </div>

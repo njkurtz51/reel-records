@@ -44,10 +44,92 @@
     text-transform: uppercase;
     color: #57534e;
   }
+
+  /* Divider line accent */
+  .section-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(to right, #c9956b, #e0c4a8);
+    border-radius: 2px;
+    margin-top: 0.75rem;
+  }
 }
 
 @layer components {
   .section-padding {
-    @apply px-6 md:px-12 py-16 md:py-24;
+    @apply px-6 md:px-12 py-16 md:py-20;
+  }
+
+  /* Fade in animation for sections */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Subtle shine animation for gold accents */
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(90deg, #c9956b 0%, #e0c4a8 50%, #c9956b 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* Page header banner — used on sub-pages */
+  .page-header-banner {
+    background: linear-gradient(135deg, #0B1D3A 0%, #162d4d 40%, #1b4332 100%);
+    padding: 7rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #c9956b, transparent);
+  }
+
+  /* Premium card hover */
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-color: #c9956b !important;
+  }
+
+  /* Stat number styling */
+  .stat-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: #071425;
+    line-height: 1;
+  }
+
+  /* Table row hover */
+  .table-row-hover {
+    transition: background-color 0.15s ease;
+  }
+
+  .table-row-hover:hover {
+    background-color: #faf7f2 !important;
   }
 }

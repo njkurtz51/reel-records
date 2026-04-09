@@ -19,20 +19,26 @@ export default function Leaderboards({ records }) {
 
   const LeaderboardTable = ({ title, subtitle, headers, rows, showRank = false }) => (
     <div
-      className="overflow-hidden mb-10"
+      className="overflow-hidden mb-8"
       style={{
-        borderRadius: '8px',
+        borderRadius: '10px',
         backgroundColor: colors.white,
         border: `1px solid ${colors.gray200}`,
-        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+        boxShadow: '0 1px 4px rgba(0,0,0,0.03)',
       }}
     >
-      <div className="p-6" style={{ borderBottom: `1px solid ${colors.gray200}` }}>
-        <h3 style={{ fontFamily: fonts.serif, fontSize: '1.375rem', fontWeight: 700, color: colors.navyDark }}>
+      <div
+        className="p-6"
+        style={{
+          borderBottom: `1px solid ${colors.gray200}`,
+          background: `linear-gradient(to right, ${colors.white}, ${colors.gray50})`,
+        }}
+      >
+        <h3 style={{ fontFamily: fonts.serif, fontSize: '1.25rem', fontWeight: 700, color: colors.navyDark }}>
           {title}
         </h3>
         {subtitle && (
-          <p style={{ fontFamily: fonts.sans, fontSize: '0.8125rem', color: colors.gray600, marginTop: '4px' }}>
+          <p style={{ fontFamily: fonts.sans, fontSize: '0.8125rem', color: colors.gray400, marginTop: '4px' }}>
             {subtitle}
           </p>
         )}
@@ -42,12 +48,32 @@ export default function Leaderboards({ records }) {
           <thead>
             <tr style={{ backgroundColor: colors.gray50, borderBottom: `2px solid ${colors.gray200}` }}>
               {showRank && (
-                <th className="px-5 py-3" style={{ fontWeight: 600, fontSize: '0.6875rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: colors.gray600, width: '60px' }}>
+                <th
+                  className="px-5 py-3"
+                  style={{
+                    fontWeight: 600,
+                    fontSize: '0.625rem',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    color: colors.gray400,
+                    width: '56px',
+                  }}
+                >
                   #
                 </th>
               )}
               {headers.map(header => (
-                <th key={header} className="px-5 py-3" style={{ fontWeight: 600, fontSize: '0.6875rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: colors.gray600 }}>
+                <th
+                  key={header}
+                  className="px-5 py-3"
+                  style={{
+                    fontWeight: 600,
+                    fontSize: '0.625rem',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    color: colors.gray400,
+                  }}
+                >
                   {header}
                 </th>
               ))}
@@ -57,20 +83,20 @@ export default function Leaderboards({ records }) {
             {rows.map((row, idx) => (
               <tr
                 key={idx}
+                className="table-row-hover"
                 style={{
                   backgroundColor: idx % 2 === 0 ? colors.white : colors.gray50,
                   borderBottom: `1px solid ${colors.gray200}`,
-                  transition: 'background-color 0.15s',
                 }}
               >
                 {showRank && (
                   <td className="px-5 py-3">
                     <span
                       style={{
-                        fontFamily: fonts.sans,
-                        fontSize: '0.6875rem',
+                        fontFamily: fonts.serif,
+                        fontSize: '0.8125rem',
                         fontWeight: 700,
-                        color: idx < 3 ? colors.gold : colors.gray400,
+                        color: idx < 3 ? colors.gold : colors.gray300,
                       }}
                     >
                       {idx + 1}
@@ -109,9 +135,9 @@ export default function Leaderboards({ records }) {
   const topHeaviestRows = topHeaviest.map(record => [
     speciesLink(record),
     <span key="w" style={{ fontWeight: 700, color: colors.navyDark, fontFamily: fonts.serif }}>{record.weight_kg} kg</span>,
-    <span key="lb" style={{ color: colors.gray600, fontSize: '0.8125rem' }}>{record.weight_lb}</span>,
-    record.angler,
-    <span key="loc" style={{ fontSize: '0.8125rem', color: colors.gray600 }}>{record.location_full}</span>,
+    <span key="lb" style={{ color: colors.gray400, fontSize: '0.8125rem' }}>{record.weight_lb}</span>,
+    <span key="a" style={{ color: colors.gray700 }}>{record.angler}</span>,
+    <span key="loc" style={{ fontSize: '0.8125rem', color: colors.gray400 }}>{record.location_full}</span>,
   ]);
 
   const countrySortedRows = countryCounts.map(({ country, count }) => [
@@ -121,18 +147,18 @@ export default function Leaderboards({ records }) {
 
   const oldestRows = oldestRecords.map(record => [
     speciesLink(record),
-    record.catch_date_display,
-    <span key="y" style={{ fontSize: '0.8125rem', color: colors.gray600 }}>
+    <span key="d" style={{ color: colors.gray600 }}>{record.catch_date_display}</span>,
+    <span key="y" style={{ fontSize: '0.8125rem', color: colors.gray400 }}>
       {Math.floor((new Date() - new Date(record.catch_date)) / (1000 * 60 * 60 * 24 * 365))} years
     </span>,
-    record.angler,
+    <span key="a" style={{ color: colors.gray700 }}>{record.angler}</span>,
   ]);
 
   const newestRows = newestRecords.map(record => [
     speciesLink(record),
-    record.catch_date_display,
-    record.angler,
-    <span key="loc" style={{ fontSize: '0.8125rem', color: colors.gray600 }}>{record.location_full}</span>,
+    <span key="d" style={{ color: colors.gray600 }}>{record.catch_date_display}</span>,
+    <span key="a" style={{ color: colors.gray700 }}>{record.angler}</span>,
+    <span key="loc" style={{ fontSize: '0.8125rem', color: colors.gray400 }}>{record.location_full}</span>,
   ]);
 
   const anglerRows = topAnglers.map(({ angler, count }) => [
@@ -141,27 +167,29 @@ export default function Leaderboards({ records }) {
   ]);
 
   return (
-    <div style={{ backgroundColor: colors.cream, minHeight: '100vh', paddingTop: '5rem', paddingBottom: '4rem' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="mb-12">
+    <div style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
+      {/* Page header banner */}
+      <div className="page-header-banner">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="label-caps mb-3" style={{ color: colors.gold }}>Rankings</div>
           <h1
             style={{
               fontFamily: fonts.serif,
               fontSize: 'clamp(2rem, 5vw, 3rem)',
               fontWeight: 700,
-              color: colors.navyDark,
+              color: colors.white,
               marginBottom: '0.5rem',
             }}
           >
             Leaderboards
           </h1>
-          <p style={{ fontFamily: fonts.sans, fontSize: '1rem', color: colors.gray600 }}>
+          <p style={{ fontFamily: fonts.sans, fontSize: '1rem', color: 'rgba(224,196,168,0.6)', maxWidth: '500px' }}>
             Rankings and achievements across the world of fishing records.
           </p>
         </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-6" style={{ paddingTop: '2.5rem', paddingBottom: '4rem' }}>
         <LeaderboardTable
           title="Top 25 Heaviest Catches"
           subtitle="The biggest fish ever recorded, ranked by weight"
@@ -208,24 +236,51 @@ export default function Leaderboards({ records }) {
           className="text-center p-12 mt-4"
           style={{
             background: gradients.navyForest,
-            borderRadius: '8px',
+            borderRadius: '12px',
+            position: 'relative',
+            overflow: 'hidden',
           }}
         >
-          <h2 style={{ fontFamily: fonts.serif, fontSize: '2rem', fontWeight: 700, color: colors.white, marginBottom: '2rem' }}>
-            By The Numbers
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { num: records.length.toLocaleString(), label: 'Total Records' },
-              { num: '104', label: 'Countries' },
-              { num: topAnglers.length, label: 'Record Holders' },
-              { num: '1932', label: 'Earliest Record' },
-            ].map(stat => (
-              <div key={stat.label}>
-                <div style={{ fontFamily: fonts.serif, fontSize: '2rem', fontWeight: 700, color: colors.white }}>{stat.num}</div>
-                <div style={{ fontFamily: fonts.sans, fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginTop: '4px' }}>{stat.label}</div>
-              </div>
-            ))}
+          {/* Decorative accent */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30% 50%, rgba(201,149,107,0.5) 0%, transparent 50%),
+                                radial-gradient(circle at 70% 50%, rgba(27,67,50,0.5) 0%, transparent 50%)`,
+            }}
+          />
+          <div className="relative">
+            <div className="label-caps mb-3" style={{ color: colors.gold }}>Overview</div>
+            <h2 style={{ fontFamily: fonts.serif, fontSize: '2rem', fontWeight: 700, color: colors.white, marginBottom: '2.5rem' }}>
+              By The Numbers
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { num: records.length.toLocaleString(), label: 'Total Records' },
+                { num: String(new Set(records.map(r => r.country)).size), label: 'Countries' },
+                { num: String(topAnglers.length), label: 'Record Holders' },
+                { num: records.reduce((min, r) => { const y = new Date(r.catch_date).getFullYear(); return y < min ? y : min; }, 9999).toString(), label: 'Earliest Record' },
+              ].map(stat => (
+                <div key={stat.label}>
+                  <div style={{ fontFamily: fonts.serif, fontSize: '2.25rem', fontWeight: 700, color: colors.white, lineHeight: 1 }}>
+                    {stat.num}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: fonts.sans,
+                      fontSize: '0.625rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: 'rgba(255,255,255,0.35)',
+                      marginTop: '8px',
+                    }}
+                  >
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
