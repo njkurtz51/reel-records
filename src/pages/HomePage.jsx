@@ -265,46 +265,42 @@ export default function HomePage({ records }) {
       {/* ═══════════════════════ TOP HEAVIEST ═══════════════════════ */}
       <section style={{ backgroundColor: colors.cream, padding: '4rem 1.5rem 5rem' }}>
         <div className="max-w-7xl mx-auto">
-          <FadeInSection>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
-              <div>
-                <div className="label-caps mb-2" style={{ color: colors.gold }}>Leaderboard</div>
-                <h2
-                  style={{
-                    fontFamily: fonts.serif,
-                    fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-                    fontWeight: 700,
-                    color: colors.navyDark,
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  Heaviest Catches of All Time
-                </h2>
-                <div className="section-divider" />
-              </div>
-              <button
-                onClick={() => navigate('/leaderboards')}
-                className="hidden md:inline-block border-none cursor-pointer bg-transparent mt-4 md:mt-0"
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+            <div>
+              <div className="label-caps mb-2" style={{ color: colors.gold }}>Leaderboard</div>
+              <h2
                 style={{
-                  fontFamily: fonts.sans,
-                  fontSize: '0.8125rem',
-                  fontWeight: 600,
-                  color: colors.gold,
-                  letterSpacing: '0.02em',
+                  fontFamily: fonts.serif,
+                  fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                  fontWeight: 700,
+                  color: colors.navyDark,
+                  marginBottom: '0.5rem',
                 }}
-                onMouseEnter={e => (e.target.style.color = colors.goldDark)}
-                onMouseLeave={e => (e.target.style.color = colors.gold)}
               >
-                View full leaderboard →
-              </button>
+                Heaviest Catches of All Time
+              </h2>
+              <div className="section-divider" />
             </div>
-          </FadeInSection>
+            <button
+              onClick={() => navigate('/leaderboards')}
+              className="hidden md:inline-block border-none cursor-pointer bg-transparent mt-4 md:mt-0"
+              style={{
+                fontFamily: fonts.sans,
+                fontSize: '0.8125rem',
+                fontWeight: 600,
+                color: colors.gold,
+                letterSpacing: '0.02em',
+              }}
+              onMouseEnter={e => (e.target.style.color = colors.goldDark)}
+              onMouseLeave={e => (e.target.style.color = colors.gold)}
+            >
+              View full leaderboard →
+            </button>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {topHeaviest.map((record, index) => (
-              <FadeInSection key={record.id} delay={index * 0.05}>
-                <RecordCard record={record} showRank={true} rank={index + 1} />
-              </FadeInSection>
+              <RecordCard key={record.id} record={record} showRank={true} rank={index + 1} />
             ))}
           </div>
         </div>
@@ -320,28 +316,25 @@ export default function HomePage({ records }) {
         }}
       >
         <div className="max-w-7xl mx-auto">
-          <FadeInSection>
-            <div className="text-center mb-12">
-              <div className="label-caps mb-2" style={{ color: colors.gold }}>Categories</div>
-              <h2
-                style={{
-                  fontFamily: fonts.serif,
-                  fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-                  fontWeight: 700,
-                  color: colors.navyDark,
-                  marginBottom: '0.5rem',
-                }}
-              >
-                Browse by Type
-              </h2>
-              <div className="section-divider" style={{ margin: '0.75rem auto 0' }} />
-            </div>
-          </FadeInSection>
+          <div className="text-center mb-12">
+            <div className="label-caps mb-2" style={{ color: colors.gold }}>Categories</div>
+            <h2
+              style={{
+                fontFamily: fonts.serif,
+                fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                fontWeight: 700,
+                color: colors.navyDark,
+                marginBottom: '0.5rem',
+              }}
+            >
+              Browse by Type
+            </h2>
+            <div className="section-divider" style={{ margin: '0.75rem auto 0' }} />
+          </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {categories.map((category, idx) => (
-              <FadeInSection key={category.slug} delay={idx * 0.08}>
-                <button
+              <button key={category.slug}
                   onClick={() => navigateToCategory(category.slug)}
                   className="w-full text-white text-center cursor-pointer border-none card-hover"
                   style={{
@@ -385,29 +378,26 @@ export default function HomePage({ records }) {
                     </div>
                   </div>
                 </button>
-              </FadeInSection>
             ))}
           </div>
 
           {/* Quick view all link */}
-          <FadeInSection delay={0.3}>
-            <div className="text-center mt-8">
-              <button
-                onClick={() => navigate('/records')}
-                className="border-none cursor-pointer bg-transparent"
-                style={{
-                  fontFamily: fonts.sans,
-                  fontSize: '0.8125rem',
-                  fontWeight: 600,
-                  color: colors.gold,
-                }}
-                onMouseEnter={e => (e.target.style.color = colors.goldDark)}
-                onMouseLeave={e => (e.target.style.color = colors.gold)}
-              >
-                View all {records.length.toLocaleString()} records →
-              </button>
-            </div>
-          </FadeInSection>
+          <div className="text-center mt-8">
+            <button
+              onClick={() => navigate('/records')}
+              className="border-none cursor-pointer bg-transparent"
+              style={{
+                fontFamily: fonts.sans,
+                fontSize: '0.8125rem',
+                fontWeight: 600,
+                color: colors.gold,
+              }}
+              onMouseEnter={e => (e.target.style.color = colors.goldDark)}
+              onMouseLeave={e => (e.target.style.color = colors.gold)}
+            >
+              View all {records.length.toLocaleString()} records →
+            </button>
+          </div>
         </div>
       </section>
 
@@ -419,38 +409,35 @@ export default function HomePage({ records }) {
         }}
       >
         <div className="max-w-7xl mx-auto">
-          <FadeInSection>
-            <div className="text-center mb-8">
-              <div
-                style={{
-                  fontFamily: fonts.sans,
-                  fontSize: '0.625rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: colors.gold,
-                  marginBottom: '0.5rem',
-                }}
-              >
-                Global Coverage
-              </div>
-              <h3
-                style={{
-                  fontFamily: fonts.serif,
-                  fontSize: '1.5rem',
-                  fontWeight: 700,
-                  color: colors.white,
-                }}
-              >
-                Top Record-Holding Nations
-              </h3>
+          <div className="text-center mb-8">
+            <div
+              style={{
+                fontFamily: fonts.sans,
+                fontSize: '0.625rem',
+                fontWeight: 600,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: colors.gold,
+                marginBottom: '0.5rem',
+              }}
+            >
+              Global Coverage
             </div>
-          </FadeInSection>
+            <h3
+              style={{
+                fontFamily: fonts.serif,
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: colors.white,
+              }}
+            >
+              Top Record-Holding Nations
+            </h3>
+          </div>
 
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {topCountries.map((c, i) => (
-              <FadeInSection key={c.country} delay={i * 0.05}>
-                <div
+              <div key={c.country}
                   className="text-center"
                   style={{
                     backgroundColor: 'rgba(255,255,255,0.05)',
@@ -482,7 +469,6 @@ export default function HomePage({ records }) {
                     {c.country}
                   </div>
                 </div>
-              </FadeInSection>
             ))}
           </div>
         </div>
@@ -491,46 +477,42 @@ export default function HomePage({ records }) {
       {/* ═══════════════════════ LATEST RECORDS ═══════════════════════ */}
       <section style={{ backgroundColor: colors.cream, padding: '5rem 1.5rem' }}>
         <div className="max-w-7xl mx-auto">
-          <FadeInSection>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
-              <div>
-                <div className="label-caps mb-2" style={{ color: colors.gold }}>Recently Added</div>
-                <h2
-                  style={{
-                    fontFamily: fonts.serif,
-                    fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-                    fontWeight: 700,
-                    color: colors.navyDark,
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  Latest Records
-                </h2>
-                <div className="section-divider" />
-              </div>
-              <button
-                onClick={() => navigate('/records?sort=date')}
-                className="hidden md:inline-block border-none cursor-pointer bg-transparent mt-4 md:mt-0"
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+            <div>
+              <div className="label-caps mb-2" style={{ color: colors.gold }}>Recently Added</div>
+              <h2
                 style={{
-                  fontFamily: fonts.sans,
-                  fontSize: '0.8125rem',
-                  fontWeight: 600,
-                  color: colors.gold,
-                  letterSpacing: '0.02em',
+                  fontFamily: fonts.serif,
+                  fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                  fontWeight: 700,
+                  color: colors.navyDark,
+                  marginBottom: '0.5rem',
                 }}
-                onMouseEnter={e => (e.target.style.color = colors.goldDark)}
-                onMouseLeave={e => (e.target.style.color = colors.gold)}
               >
-                View all →
-              </button>
+                Latest Records
+              </h2>
+              <div className="section-divider" />
             </div>
-          </FadeInSection>
+            <button
+              onClick={() => navigate('/records?sort=date')}
+              className="hidden md:inline-block border-none cursor-pointer bg-transparent mt-4 md:mt-0"
+              style={{
+                fontFamily: fonts.sans,
+                fontSize: '0.8125rem',
+                fontWeight: 600,
+                color: colors.gold,
+                letterSpacing: '0.02em',
+              }}
+              onMouseEnter={e => (e.target.style.color = colors.goldDark)}
+              onMouseLeave={e => (e.target.style.color = colors.gold)}
+            >
+              View all →
+            </button>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {latest.map((record, idx) => (
-              <FadeInSection key={record.id} delay={idx * 0.05}>
-                <RecordCard record={record} />
-              </FadeInSection>
+              <RecordCard key={record.id} record={record} />
             ))}
           </div>
         </div>
@@ -570,7 +552,7 @@ export default function HomePage({ records }) {
         />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <FadeInSection>
+          <div>
             <div
               className="label-caps mb-4"
               style={{ color: colors.gold }}
@@ -658,7 +640,7 @@ export default function HomePage({ records }) {
                 View Leaderboards
               </button>
             </div>
-          </FadeInSection>
+          </div>
         </div>
       </section>
     </div>

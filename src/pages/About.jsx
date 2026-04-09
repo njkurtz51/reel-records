@@ -3,26 +3,29 @@ import { colors, gradients, fonts } from '../utils/colors';
 
 export default function About() {
   return (
-    <div style={{ backgroundColor: colors.cream, minHeight: '100vh', paddingTop: '5rem', paddingBottom: '4rem' }}>
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16 pt-8">
+    <div style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
+      {/* Page header banner */}
+      <div className="page-header-banner">
+        <div className="max-w-4xl mx-auto px-6">
           <div className="label-caps mb-3" style={{ color: colors.gold }}>Our Story</div>
           <h1
             style={{
               fontFamily: fonts.serif,
               fontSize: 'clamp(2rem, 5vw, 3rem)',
               fontWeight: 700,
-              color: colors.navyDark,
-              marginBottom: '0.75rem',
+              color: colors.white,
+              marginBottom: '0.5rem',
             }}
           >
-            About Reel Records
+            About All-Tackle Records
           </h1>
-          <p style={{ fontFamily: fonts.sans, fontSize: '1.0625rem', color: colors.gray600, maxWidth: '500px', margin: '0 auto' }}>
+          <p style={{ fontFamily: fonts.sans, fontSize: '1rem', color: 'rgba(224,196,168,0.6)', maxWidth: '500px' }}>
             Your gateway to the world's greatest fishing achievements.
           </p>
         </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6" style={{ paddingTop: '2.5rem', paddingBottom: '4rem' }}>
 
         {/* Mission card */}
         <div
@@ -34,10 +37,10 @@ export default function About() {
           }}
         >
           <h2 style={{ fontFamily: fonts.serif, fontSize: '1.75rem', fontWeight: 700, color: colors.navyDark, marginBottom: '1.25rem' }}>
-            What is Reel Records?
+            What is All-Tackle Records?
           </h2>
           <p style={{ fontFamily: fonts.sans, fontSize: '1rem', color: colors.gray700, lineHeight: 1.8, marginBottom: '1rem' }}>
-            Reel Records is a comprehensive, searchable database of world fishing records from the International Game Fish Association (IGFA). Whether you're a seasoned angler, a casual fisherman, or simply curious about the world's greatest catches, this platform makes it easy to explore and discover incredible achievements in the sport of fishing.
+            All-Tackle Records is a comprehensive, searchable database of world fishing records from the International Game Fish Association (IGFA). Whether you're a seasoned angler, a casual fisherman, or simply curious about the world's greatest catches, this platform makes it easy to explore and discover incredible achievements in the sport of fishing.
           </p>
           <p style={{ fontFamily: fonts.sans, fontSize: '1rem', color: colors.gray700, lineHeight: 1.8 }}>
             Our mission is to celebrate the dedication, skill, and adventure that goes into breaking world records, and to make this information accessible to everyone who loves fishing and the outdoors.
@@ -80,7 +83,7 @@ export default function About() {
             Data Source & Attribution
           </h2>
           <p style={{ fontFamily: fonts.sans, fontSize: '1rem', color: colors.gray700, lineHeight: 1.8, marginBottom: '1rem' }}>
-            All records in Reel Records are sourced from the{' '}
+            All records in All-Tackle Records are sourced from the{' '}
             <a
               href="https://www.igfa.org/"
               target="_blank"
@@ -156,7 +159,7 @@ export default function About() {
             What's Next
           </h2>
           <p style={{ fontFamily: fonts.sans, fontSize: '1rem', color: colors.gray700, lineHeight: 1.8, marginBottom: '1.25rem' }}>
-            Reel Records is just getting started. Here's what's on the roadmap:
+            All-Tackle Records is just getting started. Here's what's on the roadmap:
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
