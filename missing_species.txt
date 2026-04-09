@@ -1,0 +1,75 @@
+Akodai | Sebastes matsubarai
+Aracu, pau-de-nego | Rhytiodus microlepis
+Barb, lagleri | Hypsibarbus lagleri
+Bass, Guadalupe x smallmouth | Micropterus treculi x M. dolomieu
+Bass, meanmouth | Micropterus dolomieu x M. punctulatus
+Bass, smallmouth x Alabama | Micropterus dolomieu x henshalli
+Bass, smallmouth x largemouth | Micropterus dolomieu x nigricans
+Bass, whiterock | Morone saxatilis x M. chrysops
+Bass, yellow (hybrid) | Morone mississippiensis x M. chrysops
+Boga | Leporinus obstusidens
+Bream, yellowfin sea | Dentex abei
+Butterfish, Brazilian | Hyperoglyphe macrophthalma
+Carp, bighead | Hypophtalmichthys nobilis
+Catfish, Tomoda's | Silurus tomodai
+Catfish, pangasius | Pangasius mekongensis
+Catshark, leopard | Poroderma pantherium
+Char, sparctic | Salvelinus alpinus x fontinalis
+Conger, Japanese | Conger japonicus
+Conger, Philippine | Conger philippinus
+Conger, silvery | Ariosoma meeki
+Corvina, hybrid | Cynoscion xanthulus x C. nebulosus
+Curbinata, black | Plagioscion auratus
+Dogfish, Japanese velvet | Scymnodon ichiharai
+Eel, highfin-snake | Opichthus zophistius
+Flounder, Brazilian | Paralichthys brasiliensis
+Flounder, barfin | Verasper moseri
+Flounder, sand | Limanda punctatissima
+Gar, hybrid | Lepisosteus osseus x Atractosteus spatula
+Goldfish-Carp hybrid | Carassius auratus x Cyprinus carpio
+Grenadier, longarm | Coelorinchus macrochir
+Grouper, moustache | Epinephelus chabaudi
+Grouper, yellowspotted | Epinephelus timorensis
+Jacunda, sabao | Crenicichla strigata
+Jandia | Rhamdia sebae
+Korai-kitsunemebaru | Sebastes ijimae
+Ladyfish, Senegalese | Elops senegalensis
+Lenok, stupid | Brachymystax savinovi
+Lizardfish, largespot | Synodus macrostigmus
+Mihara-hanadai | Giganthias immaculatus
+Muskellunge, tiger | Esox masquinongy x Esox lucius
+Oni-hige | Coelorinchus gilberti
+Pacu, planquettei | Myloplus planquettei
+Pangasius, shortbarbel | Pangasius micronemus
+Payara | Hydrolycus spp.
+Peacock, thyrorus | Cichla thyrorus
+Pickerel, grass | Esox americanus vermiculatus
+Pigfish, western | Bodianus vulpinus
+Pinook | Oncorhynchus gorbuscha x O. tshawytscha
+Roach-Bream | Rutillus rutilus x Abramis brama
+Rockfish, sunset | Sebastes crocotulus
+Salmon, chinook-coho | Oncorhynchus tshawytscha x O. kisutch
+Sandshark, Lesser | Acroteriobatas annulatus
+Sankomenuke | Sebastes flammeus
+Saugeye | Stizostedion vitreum x S. canadense
+Seabass, Argentine | Acanthistius brasilianus
+Seabream, Japanese blue-spotted | Amamiichthys matsubarai
+Seabream, slinger | Chrysoblephus punicues
+Shark, frog | Somniosus longus
+Skate | Raja batis
+Slickhead, Lloyd's | Narcetes lloydi
+Splake | Salvelinus namaycush x S. fontinalis
+Spurdog, shirai's | Squalus shiraii
+Sunfish, bluegill x redear | Lepomis macrochirus x L. microlophus
+Sunfish, green x redear | Lepomis microlophus x cyanellus
+Tilefish, Bahama | Caulolatilus williamsi
+Tilefish, Saito's | Branchiostegus saitoi
+Trevally, Hampl's | Caranx melampygus x sexfasciatus
+Trevally, imposter | Carangoides talamparoides
+Trout, aurora | Salvelinus fontinalis timagamiensis
+Trout, cutbow | Oncorhynchus mykiss x O. clarki
+Trout, golden x cutthroat | Oncorhynchus aguabonita x clarkii
+Trout, red spotted masu | Oncorhynchus masou macrostomus
+Trout, tiger | Salmo trutta x Salvelinus fontinalis
+Ukekuchi-Ugui | Pseudaspius nakamurai
+Weakfish, boccone | Cynoscion praedatorius
