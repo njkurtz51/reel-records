@@ -11,16 +11,26 @@ import {
   slugify,
 } from '../utils/helpers';
 
-function useInView(threshold = 0.15) {
+function useInView(threshold = 0.1) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Check if already in viewport on mount
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
       { threshold }
     );
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
   }, [threshold]);
 
